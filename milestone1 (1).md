@@ -1,10 +1,10 @@
 ﻿**
 
-# Team name
+# Team Name
 
- Team bet 
+ Team Bet 
 
-## Application name 
+## Application Name 
 
 ClosetSwap
 
