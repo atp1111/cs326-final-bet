@@ -42,7 +42,7 @@ Chukwudimma Ikoro: ChukwudimmaIkoro
 		 -	 clothingType
 		 -	 size(case by case basis)
 ## Wireframes
-![Alt text](wireframes/HomeView.jpg raw=true "Home")
+![Alt text](wireframes/HomeView.png raw=true "Home")
 
 
 
