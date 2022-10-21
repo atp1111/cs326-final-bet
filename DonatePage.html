@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <title>Donation Page</title>
+    </head>
+
+    <body>
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container">
+                <a href="#" class="navbar-brand">Closet Swap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navmenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="#Home" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="DonatePage.html" class="nav-link">Donate</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ProfilePage.html" class="nav-link">Profile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </nav>
+        <!--Search Bar -->
+        <section class="bg-primary text-light p-5">
+            <div class="container">
+                <div class="d-md-flex justify-content-between-align-item-center">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="what are you looking for?" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <button class="btn btn-dark" type="button" id="button-addon2">Search</button>
+                        
+                      </div>
+                      
+                </div>
+            </div>
+        </section>
+        
+        <!-- Create Listing Button -->
+        <section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+            <div class="container">
+                <div class="d-sm-flex align-items-center justify content between">                   
+                    <div style="text-align: center;">
+                        <h1>Want to <span class="text-warning">Donate Clothes?</span> </h1>                     
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+            <div class="container">
+                <div class="d-sm-flex align-items-center justify content between">                   
+                    <div>
+                        <h1>Add Photo*</h1>  
+                            <input type="file" id="photo">
+                            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/camera-design-template-76f84d672db58531ea7cf079f6c9f264_screen.jpg?ts=1633673675" alt='an artists rendition of a black hole in space' style='width:200px;height:200px'>                 
+                    </div>
+                    <div>
+                        <h1>Short Description*</h1>   
+                         <form style="padding-left:30px">
+                            <textarea id="w3review" name="w3review" rows="5" cols="50">Describe your listing here!</textarea><br>
+                        </form>
+                    </div>
+                    <div style="padding: 40px">
+                        <h1>Other Info</h1> 
+                        <label for="fname">Location:</label><br>
+                        <input type="text" id="location" name="location"><br>
+                        <label for="type">Clothing Type:</label><br>
+                        <input type="text" id="type" name="type"><br>
+                        <label for="condition">Condition:</label><br>
+                        <div>
+                            <input type="radio" id="ok" name="condition" value="ok">
+                            <label for="ok">OK</label>
+                            <input type="radio" id="good" name="condition" value="good">
+                            <label for="good">Good</label>
+                            <input type="radio" id="likenew" name="condition" value="likenew">
+                            <label for="like new">Like New</label>
+                        </div>
+                    </div>
+                    <div style="padding: 40px">
+                        <h1>Other Info</h1> 
+                        <label for="fname">Year Originally Bought:</label><br>
+                        <input type="number" id="bought" name="bought"><br>
+                        <label for="lname">Size:</label><br>
+                        <input type="text" id="size" name="size"><br>
+                        <label for="donateby">Donate By:</label><br>
+                        <input type="date" id="donateby" name="donateby"><br>
+                    </div>
+                </div>
+                <div>
+                    <button input type="submit" class="btn btn-primary btn-lg" style="padding: 30px">Create Listing!</button>    
+                </div>
+            </div>
+        </section>
+        
+    </body>
+</html>
