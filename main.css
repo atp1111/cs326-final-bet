@@ -1,5 +1,5 @@
 body {
-  background-color: darkblue;
+  background-color: #383c44;
 }
 
 container {
@@ -7,6 +7,6 @@ container {
 }
 
 h1 {
-  color: navy;
+  color: white;
   margin-left: 20px;
 }
