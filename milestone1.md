@@ -11,8 +11,8 @@ ClosetSwap
 ## Team Overview
 
 Aayush Panchal: atp1111 <br />
-Renuka Abbidi: RenukaAbbidi
-Chukwudimma Ikoro: ChukwudimmaIkoro
+Renuka Abbidi: RenukaAbbidi <br />
+Chukwudimma Ikoro: ChukwudimmaIkoro <br />
 
 ## Data interactions 
 -   **User Profile:**
@@ -59,7 +59,7 @@ Chukwudimma Ikoro: ChukwudimmaIkoro
 
 
 ## Division of Work 
-Home Screen- Aayush Panchal
-Donate Screen- Chukwudimma Ikoro
-Profile Screen- Renuka Abbidi
+Home Screen- Aayush Panchal <br />
+Donate Screen- Chukwudimma Ikoro <br />
+Profile Screen- Renuka Abbidi <br />
 
