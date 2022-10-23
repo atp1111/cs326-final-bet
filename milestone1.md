@@ -10,7 +10,7 @@ ClosetSwap
 
 ## Team Overview
 
-Aayush Panchal: atp1111
+Aayush Panchal: atp1111__
 Renuka Abbidi: RenukaAbbidi
 Chukwudimma Ikoro: ChukwudimmaIkoro
 
