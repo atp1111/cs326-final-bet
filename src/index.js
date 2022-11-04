@@ -1,5 +1,7 @@
 import express from "express"
 
+//Backend Server which retrieves info
+
 //Start server
 const app = express();
 const port = 8000;
