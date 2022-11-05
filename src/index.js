@@ -10,9 +10,25 @@ app.use("/", express.static("./src/client/"));
 
 //Get all listings from JSON array of list objects (Home)
 
+let listings = [
+  {
+    "userName": "myName",
+    "title": "Hoodies to Donate",
+    "desc": "This hoodie is small and made of cotton",
+    "location": "181 Fearing Street, Amherst, MA",
+    "postId" : "001"
+  },
+  {
+    "userName": "myName",
+    "title": "Tanktop to Donate",
+    "desc": "This tanktop is large and made of fleece",
+    "location": "161 Orchard Hill Drive, Amherst, MA",
+    "postId" : "002"
+  }
+];
 app.get("/listings", (req, res) => {
    res.send([listings])
-   console.log(res.send([listings]));
+   console.log(listings);
     // example listing object: {image, description, name}
  });
 
