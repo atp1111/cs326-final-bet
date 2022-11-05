@@ -4,7 +4,7 @@
 //console.log("test")
 
 (async () => {
-    const listings = await fetch("/listings") //get request to get all listings from backend -> []
+    const listings = await fetch("/listings") //get request to all listings from backend -> []
     const listJSON = await listings.json();
     console.log(listJSON);
     listingsDiv = document.getElementById("listings")
