@@ -6,34 +6,39 @@
 (async () => {
     const listings = await fetch("/listings") //get request to all listings from backend -> []
     const listJSON = await listings.json();
-    console.log(listJSON);
+    //console.log(listJSON);
     listingsDiv = document.getElementById("listings")
 
     //${i["title"]}
     //For each listing in listings, create HTML template string for a listing
-    for (let i of listJSON) {
-        const getListing = `
-            <div class="listing profile1">
-                <div class="col-lg-4">
-                    <div class="card shadow-sm">
-                        <div class="card-header bg-transparent text-center">
-                            <!--
-                            <img class="lst_img" src="./img/img1.webp" alt = "ab" height="200px" width="250px" /> -->
-                            <h3>Test</h3>
-                            </div>
-                            <div class="card-body">
-                            <p class="mb-0"><strong class="pr-1">Description:</strong>hoodies made of cotton, quantity = 5, size = all Large </p>
-                            <p class="mb-0"><strong class="pr-1">Address:</strong>130,Infirmary Way Amherst </p>
-                            <p class="mb-0"><strong class="pr-1">Userid:</strong>user123</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `;
-            console.log(getListing);
-            listingsDiv.innerHTML += getListing;
-            //listingsDiv.appendChild(getListing);
-            //document.getElementById("listings") = listingsDiv;
+    for (let i in listJSON) {
+        for (let j in listJSON[i]) {
+            //j["username"]
+            let obj = listJSON[i][j];
+            console.log(listJSON[i][j]);
+            const getListing = `
+                <span class="listing profile">
+                    <span class="col-lg-4">
+                        <span class="card shadow-sm">
+                            <span class="card-header bg-transparent text-center">
+                                <!--
+                                <img class="lst_img" src="./img/img1.webp" alt = "ab" height="200px" width="250px" /> -->
+                                <h3>${obj["title"]}</h3>
+                                </span>
+                                <span class="card-body">
+                                <p class="mb-0"><strong class="pr-1">Description:</strong>${obj["desc"]}</p>
+                                <p class="mb-0"><strong class="pr-1">Address:</strong>${obj["location"]} </p>
+                                <p class="mb-0"><strong class="pr-1">User:</strong>${obj["userName"]}</p>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+                `;
+                //console.log(getListing);
+                listingsDiv.innerHTML += getListing;
+                //listingsDiv.appendChild(getListing);
+                //document.getElementById("listings") = listingsDiv;
+            }
         }
     })();
 

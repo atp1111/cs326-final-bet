@@ -26,6 +26,20 @@ let listings = [
     "postId" : "002"
   }
 ];
+
+let users = [
+  {
+    "userName": "Chuchu",
+    "userID": "1000",
+    "location": "181 Fearing Street, Amherst, MA",
+  },
+  {
+    "userName": "Renuka",
+    "userID": "1001",
+    "location": "161 Orchard Hill Drive, Amherst, MA",
+  }
+]
+
 app.get("/listings", (req, res) => {
    res.send([listings])
    console.log(listings);
