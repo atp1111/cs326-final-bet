@@ -1,4 +1,4 @@
-***HEROKU LINK:***
+***HEROKU LINK: https://teambet.herokuapp.com/***
 
 
 ***API DOCUMENTATION***
