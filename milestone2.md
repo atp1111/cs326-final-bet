@@ -37,7 +37,11 @@
 ![image](https://user-images.githubusercontent.com/69084967/200965754-3951f703-3e09-4584-ad68-b8e5353cbd39.png)
 
 Breakdown:
+
 Backend Server API/ Read Calls: Chuchu
+
 Create Calls: Aayush
+
 Update/Delete Calls: Renuka
+
 Server Hosting: All
