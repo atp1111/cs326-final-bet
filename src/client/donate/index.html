@@ -99,7 +99,13 @@
                     </div>
                 </div>
                 <div>
-                    <button input type="submit" class="btn btn-primary btn-lg">Create Listing!</button>    
+                    <script type="text/javascript">
+                        function showMessage() {
+                            alert("Your donation has been listed! Thank you!");
+                        }
+                    </script>
+                    <input type="button" class="btn btn-primary btn-lg" id="btnShowMsg" value="Donate!" onClick="showMessage()" />
+                   <!-- <button input type="submit" class="btn btn-primary btn-lg">Create Listing!</button>   --> 
                 </div>
             </div>
         </section>
