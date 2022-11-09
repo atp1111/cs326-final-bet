@@ -36,6 +36,10 @@
 *DELETE:*
 ![image](https://user-images.githubusercontent.com/69084967/200965754-3951f703-3e09-4584-ad68-b8e5353cbd39.png)
 
+Heroku app link: 
+
+https://teambet.herokuapp.com/
+
 Breakdown:
 
 Backend Server API/ Read Calls: Chuchu
