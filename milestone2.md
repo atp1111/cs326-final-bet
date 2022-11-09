@@ -6,6 +6,7 @@
 *DELETE:* User, Listing
 
 *Example Endpoints:*
+
 /listing/new- add new listing to server
 
 /listing/- a view endpoint which returns all fields for a listing as a JSON object
