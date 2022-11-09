@@ -26,8 +26,14 @@ let listings = [
 
 let users = [
   {
-    "userName": "Chuchu",
+    "userName": "Default User",
     "userID": "1000",
+    "email": "default@umass.edu",
+    "location": "default",
+  },
+  {
+    "userName": "Chuchu",
+    "userID": "1001",
     "email": "cuikoro@umass.edu",
     "location": "181 Fearing Street, Amherst, MA",
   },
