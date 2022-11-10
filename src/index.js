@@ -4,7 +4,7 @@ import express from "express"
 
 //Start server
 const app = express();
-const port = 8000 || process.env.PORT;
+const port = process.env.PORT || 8000;
 
 //Get all listings from JSON array of list and user objects (Home)
 let listings = [
