@@ -15,9 +15,9 @@ var pool = mysql.createConnection({
   port: "5432"
 });
 
-await pool.connect(function(err) {
-  console.log("Connected!");
-});
+//await pool.connect(function(err) {
+  //console.log("Connected!");
+//});
 
 //Get all listings from JSON array of list and user objects (Home)
 let listings = [
@@ -61,13 +61,13 @@ let users = [
 app.use("/", express.static("./src/client/")); 
 app.use("/profile", express.static("./src/client/profile"));
 
-/*app.get("/listings", (req, res) => {
+app.get("/listings", (req, res) => {
   res.send([listings])
   //console.log(listings);
    // example listing object: {image, description, name}
-});*/
+});
 
-app.get('/listings', async (req, res) => {
+/*app.get('/listings', async (req, res) => {
   try {
     const client = await pool.connect();
     console.log(pool);
@@ -79,7 +79,7 @@ app.get('/listings', async (req, res) => {
     console.error(err);
     res.send("Error " + err);
   }
-})
+})*/
 
  app.get("/users", (req, res) => {
   res.send([users])
