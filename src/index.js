@@ -7,6 +7,7 @@ dotenv.config()
 
 //Start server and access secrets from .env
 const app = express();
+app.use(express.json())
 const port = process.env.PORT || 8000;
 const dbPort = process.env.DBPORT
 const host = process.env.HOST;
@@ -92,6 +93,22 @@ app.get('/listings', async (req, res) => {
     const result = await client.query('SELECT * FROM "Listings"'); 
     const results = { 'results': (result) ? result.rows : null};
     res.send( results );
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+})
+
+app.post('/donate', async (req, res) => {
+  try {
+    console.log(req.body);
+    const { username, title, description, location, postId } = req.body;
+     const text= 'INSERT INTO "Listings"(username, title, description, location, postId) VALUES($1, $2, $3, $4, $5) RETURNING *;'
+     const values= [username, title, description, location, postId]
+    
+    const result = await client.query(text, values); 
+    // const results = { 'results': (result) ? result.rows : null};
+    res.redirect( '/' );
   } catch (err) {
     console.error(err);
     res.send("Error " + err);
