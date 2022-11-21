@@ -7,7 +7,7 @@
     const listings = await fetch("/listings") //get request to all listings from backend -> []
     const listJSON = await listings.json();
     //console.log(listJSON);
-    listingsDiv = document.getElementById("listings")
+    const listingsDiv = document.getElementById("listings")
 
     //${i["title"]}
     //For each listing in listings, create HTML template string for a listing
