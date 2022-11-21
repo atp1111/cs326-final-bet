@@ -1,25 +1,43 @@
 import express from "express"
-import mysql from "mysql";
-
+import pg from "pg"
+const {Client} = pg
+import dotenv from "dotenv"
+dotenv.config()
 //Backend Server which retrieves info
 
-//Start server
+//Start server and access secrets from .env
 const app = express();
 const port = process.env.PORT || 8000;
+const dbPort = process.env.DBPORT
+const host = process.env.HOST;
+const database = process.env.DATABASE;
+const user = process.env.USER;
+const password = process.env.PASSWORD;
+const uri = process.env.URI;
 
-var pool = mysql.createConnection({
-  host: "ec2-54-204-56-171.compute-1.amazonaws.com",
-  user: "mkhtopjnugvikz",
-  password: "13684de6d531b341061eee9bcc227e1ef8d183df1014c836153d9df531b3240c",
-  database: "d7g7bo1rdppcn1",
-  port: "5432"
+
+
+const client = new Client({
+  host: host,
+  port: dbPort,
+  password: password,
+  user: user,
+  database: database,
+  connectionString: uri,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
-//await pool.connect(function(err) {
-  //console.log("Connected!");
-//});
+client.connect((err) => {
+  if(err) {
+    console.log(err)
+  } else {
+  console.log("Connected to db")
+  }
+})
 
-//Get all listings from JSON array of list and user objects (Home)
+//Dummy JSON Data
 let listings = [
   {
     "userName": "Chuchu",
@@ -61,44 +79,30 @@ let users = [
 app.use("/", express.static("./src/client/")); 
 app.use("/profile", express.static("./src/client/profile"));
 
-app.get("/listings", (req, res) => {
-  res.send([listings])
+//app.get("/listings", (req, res) => {
+  //res.send([listings])
   //console.log(listings);
    // example listing object: {image, description, name}
-});
+//});
 
-/*app.get('/listings', async (req, res) => {
+
+//Get listings stored in database and serve to client
+app.get('/listings', async (req, res) => {
   try {
-    const client = await pool.connect();
-    console.log(pool);
-    const result = await client.query('SELECT * FROM Listings'); 
+    const result = await client.query('SELECT * FROM "Listings"'); 
     const results = { 'results': (result) ? result.rows : null};
-    res.render('pages/listings', results );
-    client.release();
-  } catch (err) {
-    console.error(err);
-    res.send("Error " + err);
-  }
-})*/
-
- app.get("/users", (req, res) => {
-  res.send([users])
-  console.log(users);
-});
-
-//TODO: Temp Database Table, Edit later/ Adapt for Listings/Users
-app.get('/db', async (req, res) => {
-  try {
-    const client = await pool.connect();
-    const result = await client.query('SELECT * FROM test_table'); //change sql query
-    const results = { 'results': (result) ? result.rows : null};
-    res.render('pages/db', results );
-    client.release();
+    res.send( results );
   } catch (err) {
     console.error(err);
     res.send("Error " + err);
   }
 })
+
+//Get users stored in database and serve to client
+ app.get("/users", (req, res) => {
+  res.send([users])
+  console.log(users);
+});
 
 //Ex. Get all listings saved under a user (Manage Listings/ Saved Listings)
 //app.get("/listings/:userId", (req, res) => {
