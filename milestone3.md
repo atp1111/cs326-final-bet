@@ -4,20 +4,28 @@ Listing Table
 
 | Column       | Data Type | Description                 |
 |--------------|-----------|-----------------------------|
-| userName     | String    | The name of the user        |
+| username     | String    | The name of the user        |
 | title        | String    | The summary of the listing  |
-| desc         | String    | The desctiption of the item |
+| description  | String    | The desctiption of the item |
 | location     | String    | The location of the listing |
 | postId       | int       | The unique ID of the listing|
-| timeCreated  | Date      | When the listing was made   |
-
+| timeCreated  | DateTime  | When the listing was made   |
+|              |           |(For chronological ordering) |
 
 User Table 
 
 | Column       | Data Type | Description                 |
 |--------------|-----------|-----------------------------|
-| userName     | String    | The name of the user        |
+| username     | String    | The name of the user        |
 | userID       | int       | The unique ID of the user   |
 | email        | String    | The email of the user       |
 | location     | String    | The location of the user    |
 | myListing    | Object    | The user's current listing  |
+
+**Division of Labor:**
+
+Database/Secrets File Setup: Chuchu
+
+Create, Read, Delete Functions: Chuchu
+
+Update Function:
