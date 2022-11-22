@@ -14,7 +14,7 @@ const host = process.env.HOST;
 const database = process.env.DATABASE;
 const user = process.env.USER;
 const password = process.env.PASSWORD;
-const uri = process.env.URI;
+const uri = process.env.DATABASE_URL;
 
 
 
