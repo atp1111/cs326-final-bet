@@ -6,7 +6,7 @@ Listing Table
 |--------------|-----------|-----------------------------|
 | username     | String    | The name of the user        |
 | title        | String    | The summary of the listing  |
-| desc         | String    | The desctiption of the item |
+| description  | String    | The desctiption of the item |
 | location     | String    | The location of the listing |
 | postId       | int       | The unique ID of the listing|
 | timeCreated  | Date      | When the listing was made   |
