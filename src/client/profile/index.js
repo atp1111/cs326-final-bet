@@ -1,12 +1,13 @@
 //API requests for the profile screen are handled here
 
 //Fetch users from src index.js then get data from current user
+let confirm = false;
 
 (async () => {
     const users = await fetch("/users") //get request to all users from backend -> []
     const userJSON = await users.json();
 
-    let currUserID = "1000";
+    let currUserID = "0000";
     userDiv = document.getElementById("user")
 
     if (currUserID === "") {
@@ -55,5 +56,29 @@
             }
         }
 
+        document.getElementById('buttonDelete').addEventListener('click',  async() => {
+
+            let username = "Default";
         
+            if (confirm === false) {
+                alert("Are you sure you want to delete all your listings? Click again if yes.");
+                confirm = (!(confirm));
+            }
+        
+            else {
+        
+                alert("All posts under your account have been deleted.");
+                confirm = (!(confirm));
+                
+             await fetch('/users', {
+
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                    },
+                body: JSON.stringify({username: username})
+                });
+        
+            }
+        });
     })();

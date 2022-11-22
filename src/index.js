@@ -58,8 +58,8 @@ let listings = [
 
 let users = [
   {
-    "userName": "Default User",
-    "userID": "1000",
+    "userName": "Default Temp",
+    "userID": "0000",
     "email": "default@umass.edu",
     "location": "default",
   },
@@ -90,14 +90,14 @@ app.use("/profile", express.static("./src/client/profile"));
 //Get listings stored in database and serve to client
 app.get('/listings', async (req, res) => {
   try {
-    const result = await client.query('SELECT * FROM "Listings"'); 
+    const result = await client.query('SELECT * from "Listings" ORDER BY "timeCreated" DESC'); 
     const results = { 'results': (result) ? result.rows : null};
     res.send( results );
   } catch (err) {
     console.error(err);
     res.send("Error " + err);
   }
-})
+});
 
 app.post('/donate', async (req, res) => {
   try {
@@ -113,13 +113,39 @@ app.post('/donate', async (req, res) => {
     console.error(err);
     res.send("Error " + err);
   }
-})
+});
 
 //Get users stored in database and serve to client
- app.get("/users", (req, res) => {
-  res.send([users])
-  console.log(users);
+// app.get("/users", (req, res) => {
+  //res.send([users])
+  //console.log(users);
+//});
+
+app.get('/users', async (req, res) => {
+  try {
+    const result = await client.query('SELECT * from "Users";'); 
+    const results = { 'results': (result) ? result.rows : null};
+    res.send( results );
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
 });
+
+app.delete('/users', async (req, res) => {
+  try {
+    console.log(req.body);
+    const username = req.body;
+    const text= `DELETE FROM "Listings" WHERE username='Default';`
+    const values= [username]
+    const result = await client.query(text); 
+
+    res.redirect( '/' );
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+})
 
 //Ex. Get all listings saved under a user (Manage Listings/ Saved Listings)
 //app.get("/listings/:userId", (req, res) => {
