@@ -9,7 +9,7 @@ Listing Table
 | description  | String    | The desctiption of the item |
 | location     | String    | The location of the listing |
 | postId       | int       | The unique ID of the listing|
-| timeCreated  | Date      | When the listing was made   |
+| timeCreated  | DateTime  | When the listing was made   |
 |              |           |(For chronological ordering) |
 
 User Table 
