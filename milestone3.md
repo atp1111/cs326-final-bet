@@ -4,7 +4,7 @@ Listing Table
 
 | Column       | Data Type | Description                 |
 |--------------|-----------|-----------------------------|
-| userName     | String    | The name of the user        |
+| username     | String    | The name of the user        |
 | title        | String    | The summary of the listing  |
 | desc         | String    | The desctiption of the item |
 | location     | String    | The location of the listing |
