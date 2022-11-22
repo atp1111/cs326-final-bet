@@ -21,3 +21,8 @@ User Table
 | email        | String    | The email of the user       |
 | location     | String    | The location of the user    |
 | myListing    | Object    | The user's current listing  |
+
+**Division of Labor:**
+Database/Secrets File Setup: Chuchu
+Create, Read, Delete Functions: Chuchu
+Update Function:
