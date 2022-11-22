@@ -16,7 +16,7 @@ User Table
 
 | Column       | Data Type | Description                 |
 |--------------|-----------|-----------------------------|
-| userName     | String    | The name of the user        |
+| username     | String    | The name of the user        |
 | userID       | int       | The unique ID of the user   |
 | email        | String    | The email of the user       |
 | location     | String    | The location of the user    |
