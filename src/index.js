@@ -80,13 +80,6 @@ let users = [
 app.use("/", express.static("./src/client/")); 
 app.use("/profile", express.static("./src/client/profile"));
 
-//app.get("/listings", (req, res) => {
-  //res.send([listings])
-  //console.log(listings);
-   // example listing object: {image, description, name}
-//});
-
-
 //Get listings stored in database and serve to client
 app.get('/listings', async (req, res) => {
   try {
@@ -99,15 +92,15 @@ app.get('/listings', async (req, res) => {
   }
 });
 
+//Parse data from donate page to create post in database
 app.post('/donate', async (req, res) => {
   try {
     console.log(req.body);
-    const { username, title, description, location, postId } = req.body;
-     const text= 'INSERT INTO "Listings"(username, title, description, location, postId) VALUES($1, $2, $3, $4, $5) RETURNING *;'
-     const values= [username, title, description, location, postId]
+    const { username, title, description, location, postId, type } = req.body;
+     const text= 'INSERT INTO "Listings"(username, title, description, location, postId, type) VALUES($1, $2, $3, $4, $5, $6) RETURNING *;'
+     const values= [username, title, description, location, postId, type]
     
     const result = await client.query(text, values); 
-    // const results = { 'results': (result) ? result.rows : null};
     res.redirect( '/' );
   } catch (err) {
     console.error(err);
@@ -116,11 +109,6 @@ app.post('/donate', async (req, res) => {
 });
 
 //Get users stored in database and serve to client
-// app.get("/users", (req, res) => {
-  //res.send([users])
-  //console.log(users);
-//});
-
 app.get('/users', async (req, res) => {
   try {
     const result = await client.query('SELECT * from "Users";'); 
@@ -132,6 +120,7 @@ app.get('/users', async (req, res) => {
   }
 });
 
+//Delete listings stored in database under the current user's name
 app.delete('/users', async (req, res) => {
   try {
     console.log(req.body);

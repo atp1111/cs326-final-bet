@@ -28,6 +28,7 @@
                                 <span class="card-body">
                                 <p class="mb-0"><strong class="pr-1">Description:</strong>${obj["description"]}</p>
                                 <p class="mb-0"><strong class="pr-1">Address:</strong>${obj["location"]} </p>
+                                <p class="mb-0"><strong class="pr-1">Clothing Type:</strong>${obj["type"]} </p>
                                 <p class="mb-0"><strong class="pr-1">User:</strong>${obj["username"]}</p>
                             </span>
                         </span>
