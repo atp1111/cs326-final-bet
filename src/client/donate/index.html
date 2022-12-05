@@ -59,9 +59,10 @@
             <div class="container">
                 <div class="d-sm-flex align-items-center justify content between">                   
                     <div>
-                        <h1>Add Photo*</h1>  
-                            <input type="file" id="photo">
-                            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/camera-design-template-76f84d672db58531ea7cf079f6c9f264_screen.jpg?ts=1633673675" alt='an artists rendition of a black hole in space' style='width:200px;height:200px'>                 
+                        <h1>Image Link*</h1>  
+                            <input type="text" id="imagename" value = "">
+                            <input type="button" class="btn btn-primary" id="addimage" value="Add Image" />
+                            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/camera-design-template-76f84d672db58531ea7cf079f6c9f264_screen.jpg?ts=1633673675" id='preview' style='width:200px;height:200px'>                 
                     </div>
                     <div>
                         <h2> Title* </h2>
@@ -78,20 +79,13 @@
                         <label for="type">Clothing Type:</label><br>
                         <input type="text" id="type" name="type"><br>
                         <label for="condition">Condition:</label><br>
-                        <div>
-                            <input type="radio" id="condition" value="OK">
-                            <label for="OK">OK</label>
-                            <input type="radio" id="condition" value="Good">
-                            <label for="Good">Good</label>
-                            <input type="radio" id="condition" value="Like New">
-                            <label for="Like New">Like New</label>
-                        </div>
+                        <input type="text" id="condition" name="condition"><br>
                     </div>
                     <div style="padding: 40px">
                         <h1>Optional Info</h1> 
-                        <label for="fname">Year Originally Bought:</label><br>
-                        <input type="number" id="bought" name="bought"><br>
-                        <label for="lname">Size:</label><br>
+                        <label for="year">Year Originally Bought:</label><br>
+                        <input type="number" id="year" name="year"><br>
+                        <label for="size">Size:</label><br>
                         <input type="text" id="size" name="size"><br>
                         <label for="donateby">Donate By:</label><br>
                         <input type="date" id="donateby" name="donateby"><br>
