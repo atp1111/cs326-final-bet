@@ -52,14 +52,27 @@ app.get('/listings', async (req, res) => {
   }
 });
 
+app.post('/mylistings', async (req, res) => {
+  try {
+    const username = req.body.username;
+    const text = `SELECT * from "Listings" WHERE username='` + username + `' ORDER BY "timecreated" DESC`; //LIMIT 1? 
+    console.log(text)
+    const result = await client.query(text); 
+    const results = { 'results': (result) ? result.rows : null};
+    res.send( results );
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+});
+
 //Parse data from donate page to create post in database
 app.post('/donate', async (req, res) => {
   try {
     console.log(req.body);
     const { username, title, description, location, postId, type, image, timecreated, condition, size, year, donateby } = req.body;
-     const text= 'INSERT INTO "Listings"(username, title, description, location, postId, type, image, timecreated, condition, size, year, donateby) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *;'
-     const values= [username, title, description, location, postId, type, image, timecreated, condition, size, year, donateby]
-    
+    const text= 'INSERT INTO "Listings"(username, title, description, location, postId, type, image, timecreated, condition, size, year, donateby) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *;'
+    const values= [username, title, description, location, postId, type, image, timecreated, condition, size, year, donateby]
     const result = await client.query(text, values); 
     res.redirect( '/' );
   } catch (err) {
@@ -84,22 +97,18 @@ app.get('/users', async (req, res) => {
 app.delete('/users', async (req, res) => {
   try {
     console.log(req.body);
-    const username = req.body;
-    const text= `DELETE FROM "Listings" WHERE username='Default';`
-    const values= [username]
+    const username = req.body.username;
+    const text= `DELETE FROM "Listings" WHERE username='` + username + `';`
+    console.log(text); 
     const result = await client.query(text); 
-
     res.redirect( '/' );
+
+    
   } catch (err) {
     console.error(err);
     res.send("Error " + err);
   }
 })
-
-//Ex. Get all listings saved under a user (Manage Listings/ Saved Listings)
-//app.get("/listings/:userId", (req, res) => {
-  // {userId} = req.params
-// })
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
