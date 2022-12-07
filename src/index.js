@@ -40,6 +40,10 @@ client.connect((err) => {
 app.use("/", express.static("./src/client/")); 
 app.use("/profile", express.static("./src/client/profile"));
 
+export async function getUserByEmail(email) {
+  return await user.findOne({ email: email });
+}
+
 //Get listings stored in database and serve to client
 app.get('/listings', async (req, res) => {
   try {
