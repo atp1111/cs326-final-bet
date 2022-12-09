@@ -1,9 +1,9 @@
+//Backend Server which retrieves info
 import express from "express"
 import pg from "pg"
 const {Client} = pg
 import dotenv from "dotenv"
 dotenv.config()
-//Backend Server which retrieves info
 
 //Start server and access secrets from .env
 const app = express();
@@ -15,8 +15,6 @@ const database = process.env.DATABASE;
 const user = process.env.USER;
 const password = process.env.PASSWORD;
 const uri = process.env.DATABASE_URL;
-
-
 
 const client = new Client({
   host: host,
@@ -30,6 +28,7 @@ const client = new Client({
   }
 });
 
+//Connect to database
 client.connect((err) => {
   if(err) {
     console.log(err)
@@ -38,52 +37,31 @@ client.connect((err) => {
   }
 })
 
-//Dummy JSON Data
-let listings = [
-  {
-    "userName": "Chuchu",
-    "title": "Hoodies to Donate",
-    "desc": "This hoodie is small and made of cotton",
-    "location": "181 Fearing Street, Amherst, MA",
-    "postId" : "001"
-  },
-  {
-    "userName": "Renuka",
-    "title": "Tanktop to Donate",
-    "desc": "This tanktop is large and made of fleece",
-    "location": "161 Orchard Hill Drive, Amherst, MA",
-    "postId" : "002"
-  }
-];
-
-let users = [
-  {
-    "userName": "Default Temp",
-    "userID": "0000",
-    "email": "default@umass.edu",
-    "location": "default",
-  },
-  {
-    "userName": "Chuchu",
-    "userID": "1001",
-    "email": "cuikoro@umass.edu",
-    "location": "181 Fearing Street, Amherst, MA",
-  },
-  {
-    "userName": "Renuka",
-    "userID": "1001",
-    "email": "cuikoro@umass.edu",
-    "location": "161 Orchard Hill Drive, Amherst, MA",
-  }
-];
-
 app.use("/", express.static("./src/client/")); 
 app.use("/profile", express.static("./src/client/profile"));
+
+export async function getUserByEmail(email) {
+  return await user.findOne({ email: email });
+}
 
 //Get listings stored in database and serve to client
 app.get('/listings', async (req, res) => {
   try {
-    const result = await client.query('SELECT * from "Listings" ORDER BY "timeCreated" DESC'); 
+    const result = await client.query('SELECT * from "Listings" ORDER BY "timecreated" DESC'); 
+    const results = { 'results': (result) ? result.rows : null};
+    res.send( results );
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+});
+
+app.post('/mylistings', async (req, res) => {
+  try {
+    const username = req.body.username;
+    const text = `SELECT * from "Listings" WHERE username='` + username + `' ORDER BY "timecreated" DESC`; //LIMIT 1? 
+    console.log(text)
+    const result = await client.query(text); 
     const results = { 'results': (result) ? result.rows : null};
     res.send( results );
   } catch (err) {
@@ -96,10 +74,9 @@ app.get('/listings', async (req, res) => {
 app.post('/donate', async (req, res) => {
   try {
     console.log(req.body);
-    const { username, title, description, location, postId, type } = req.body;
-     const text= 'INSERT INTO "Listings"(username, title, description, location, postId, type) VALUES($1, $2, $3, $4, $5, $6) RETURNING *;'
-     const values= [username, title, description, location, postId, type]
-    
+    const { username, title, description, location, postId, type, image, timecreated, condition, size, year, donateby } = req.body;
+    const text= 'INSERT INTO "Listings"(username, title, description, location, postId, type, image, timecreated, condition, size, year, donateby) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *;'
+    const values= [username, title, description, location, postId, type, image, timecreated, condition, size, year, donateby]
     const result = await client.query(text, values); 
     res.redirect( '/' );
   } catch (err) {
@@ -124,22 +101,18 @@ app.get('/users', async (req, res) => {
 app.delete('/users', async (req, res) => {
   try {
     console.log(req.body);
-    const username = req.body;
-    const text= `DELETE FROM "Listings" WHERE username='Default';`
-    const values= [username]
+    const username = req.body.username;
+    const text= `DELETE FROM "Listings" WHERE username='` + username + `';`
+    console.log(text); 
     const result = await client.query(text); 
-
     res.redirect( '/' );
+
+    
   } catch (err) {
     console.error(err);
     res.send("Error " + err);
   }
 })
-
-//Ex. Get all listings saved under a user (Manage Listings/ Saved Listings)
-//app.get("/listings/:userId", (req, res) => {
-  // {userId} = req.params
-// })
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);

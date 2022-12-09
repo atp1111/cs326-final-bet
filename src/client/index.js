@@ -77,15 +77,15 @@ function throttle(cb, delay=300) {
                     <span class="col-lg-4">
                         <span class="card shadow-sm">
                             <span class="card-header bg-transparent text-center">
-                                <!--
-                                <img class="lst_img" src="./img/img1.webp" alt = "ab" height="200px" width="250px" /> -->
+                                <img src="${obj["image"]}" id='preview' alt="No Photo" class="center">  
                                 <h3>${obj["title"]}</h3>
-                                </span>
+                                </span> 
                                 <span class="card-body">
                                 <p class="mb-0"><strong class="pr-1">Description:</strong>${obj["description"]}</p>
                                 <p class="mb-0"><strong class="pr-1">Address:</strong>${obj["location"]} </p>
                                 <p class="mb-0"><strong class="pr-1">Clothing Type:</strong>${obj["type"]} </p>
                                 <p class="mb-0"><strong class="pr-1">User:</strong>${obj["username"]}</p>
+                                <p class="mb-0"><strong class="pr-1">DONATE BY:</strong>${obj["donateby"]}</p>
                             </span>
                         </span>
                     </span>
