@@ -28,6 +28,42 @@ button {
   padding: 50px;
 }
 
+/* new css*/
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+input {
+  font-size: 1rem;
+}
+
+.listings {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: .25rem;
+  margin-top: 1rem;
+}
+
+.listing {
+  border: 1px solid black;
+  background-color: white;
+  padding: .5rem;
+}
+
+.listing > .header {
+  margin-bottom: .25rem;
+}
+
+.listing > .body {
+  font-size: .8rem;
+  color: #777;
+}
+
+.hide {
+  display: none;
+
 .center {
   display: block;
   margin-left: auto;
