@@ -1,0 +1,6 @@
+HOST="ec2-54-204-56-171.compute-1.amazonaws.com"
+DATABASE="d7g7bo1rdppcn1"
+USER="mkhtopjnugvikz"
+DBPORT=5432
+PASSWORD="13684de6d531b341061eee9bcc227e1ef8d183df1014c836153d9df531b3240c"
+URI="postgres://mkhtopjnugvikz:13684de6d531b341061eee9bcc227e1ef8d183df1014c836153d9df531b3240c@ec2-54-204-56-171.compute-1.amazonaws.com:5432/d7g7bo1rdppcn1"
