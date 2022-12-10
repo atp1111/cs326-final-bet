@@ -85,6 +85,33 @@ app.post('/donate', async (req, res) => {
   }
 });
 
+//Parse data from donate page to update post in database
+app.post('/update', async (req, res) => {
+  try {
+    console.log(req.body);
+    const { username, title, description, location, postId, type, image, timecreated, condition, size, year, donateby } = req.body;
+    const text= `UPDATE "Listings" SET 
+        username = $1,
+        title = $2,
+        description = $3,
+        location = $4,
+        timecreated = $5,
+        condition = $6,
+        size = $7,
+        year = $8,
+        image = $9,
+        type = $10,
+        donateby = $11
+    WHERE postid = $12;`;
+    const values= [username, title, description, location, timecreated, condition, size, year, image, type, donateby, postId]
+    const result = await client.query(text, values); 
+    res.redirect( '/' );
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+});
+
 //Get users stored in database and serve to client
 app.get('/users', async (req, res) => {
   try {

@@ -60,22 +60,10 @@ let listed = false;
         document.getElementById('buttonUpdate').addEventListener('click',  async() => {
             
             alert("Update your listing here.");
-            window.localStorage.setItem("update", true);
+            window.sessionStorage.setItem("update", true);
             
 
-          /*  const listings = await fetch('/mylistings', {
-
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                        },
-                    body: JSON.stringify({username: username})
-                    });
-            
-            alert(listings);*/
             window.location.href = '../donate';
-            //const listJSON = await listings.json();
-            //window.localStorage.setItem("myListing", listJSON);
             
         });
 
@@ -85,7 +73,7 @@ let listed = false;
             let username = "Default";
         
             if (confirm === false) {
-                alert("Are you sure you want to delete all your listings? Click again if yes.");
+                alert("Are you sure you want to delete your listings? Click again if yes.");
                 confirm = (!(confirm));
             }
         

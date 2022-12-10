@@ -1,8 +1,10 @@
 //API requests for the donate screen are handled here
 let preview = document.getElementById("preview").src;
+let currPostId = "";
 
-/*if (window.localStorage.getItem("update") === true) {
-    localStorage.removeItem("update");
+async function updateFill() {
+    //change to curr user
+    let username = "Default";
 
     const listings = await fetch('/mylistings', {
 
@@ -14,18 +16,37 @@ let preview = document.getElementById("preview").src;
         });
     
     const listJSON = await listings.json();
-    alert(listJSON);
-}*/
+    //console.log(listJSON)
 
-/*if (window.localStorage.getItem("myListing") !== null) {
-    const myJSON = JSON.parse(window.localStorage.getItem("myListing"));
-    alert(myJSON);
-    localStorage.removeItem("myListing");
-}*/
+    for (let i in listJSON) {
+        for (let j in listJSON[i]) { 
+            let obj = listJSON[i][j];
+            console.log(obj)
+            document.getElementById("title").value = obj["title"];
+            document.getElementById("description").value = obj["description"];
+            document.getElementById("imagename").value = obj["image"];
+            document.getElementById("location").value = obj["location"];
+            document.getElementById("type").value = obj["type"];
+            document.getElementById("donateby").value = obj["donateby"];
+            document.getElementById("size").value = obj["size"];
+            document.getElementById("year").value = obj["year"];
+            document.getElementById("condition").value = obj["condition"];
+            currPostId = obj["postid"];
+        }
+    }
+
+    document.getElementById("buttonDonate").value = "Update!"
+}
+
+if (JSON.parse(window.sessionStorage.getItem("update")) === true) {
+    sessionStorage.removeItem("update");
+    updateFill();
+}
+
 
 document.getElementById('addimage').addEventListener('click',  async() => {
 
-    if ((document.getElementById('imagename').value).length < 100) {
+    if ((document.getElementById('imagename').value).length < 15) {
         alert("Invalid image address. (Right click an image and click 'Copy Image Address'");
     }
 
@@ -61,29 +82,58 @@ document.getElementById('buttonDonate').addEventListener('click',  async() => {
     if ((title === "") || (description === "") || (location === "") || (type === "") || (donateby === "") || (document.getElementById("preview").src === preview)) {
         alert("Please add all required info. (Required info has an asterick next to it.)");
     }
-    else {
-        alert("Your donation has been processed!");
-        
-        await fetch('/donate', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: username, 
-                title: title, 
-                description: description, 
-                location: location, 
-                postId: postId, 
-                type: type, 
-                image: image, 
-                timecreated: timecreated, 
-                condition: condition, 
-                size: size, 
-                year: year, 
-                donateby: donateby})
-            });
 
-        window.location.href = '../';   
-    }
-    });
+    else {
+
+        if (document.getElementById("buttonDonate").value === "Update!") {
+            alert("Your donation has been updated.")
+            postId = currPostId;
+
+            await fetch('/update', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: username, 
+                    title: title, 
+                    description: description, 
+                    location: location, 
+                    postId: postId, 
+                    type: type, 
+                    image: image, 
+                    timecreated: timecreated, 
+                    condition: condition, 
+                    size: size, 
+                    year: year, 
+                    donateby: donateby})
+                });
+            } 
+
+        else {
+            alert("Your donation has been processed!");
+            
+            await fetch('/donate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: username, 
+                    title: title, 
+                    description: description, 
+                    location: location, 
+                    postId: postId, 
+                    type: type, 
+                    image: image, 
+                    timecreated: timecreated, 
+                    condition: condition, 
+                    size: size, 
+                    year: year, 
+                    donateby: donateby})
+                });
+            }       
+
+        window.location.href = '../';
+    }   
+});
