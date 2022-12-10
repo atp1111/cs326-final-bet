@@ -59,7 +59,7 @@ app.get('/listings', async (req, res) => {
 app.post('/mylistings', async (req, res) => {
   try {
     const username = req.body.username;
-    const text = `SELECT * from "Listings" WHERE username='` + username + `' ORDER BY "timecreated" DESC`; //LIMIT 1? 
+    const text = `SELECT * from "Listings" WHERE username='` + username + `' ORDER BY "timecreated" DESC LIMIT 1`; //LIMIT 1? 
     console.log(text)
     const result = await client.query(text); 
     const results = { 'results': (result) ? result.rows : null};

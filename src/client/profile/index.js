@@ -2,6 +2,7 @@
 
 //Fetch users from src index.js then get data from current user
 let confirm = false;
+let listed = false;
 
 (async () => {
     const users = await fetch("/users") //get request to all users from backend -> []
@@ -40,7 +41,7 @@ let confirm = false;
                                 <span class="card-header bg-transparent text-center">
                                     <!--
                                     <img class="lst_img" src="./img/img1.webp" alt = "ab" height="200px" width="250px" /> -->
-                                    <h3>${obj["userName"]}</h3>
+                                    <h3>User: ${obj["userName"]}</h3>
                                     </span>
                                     <span class="card-body">
                                     <p class="mb-0"><strong class="pr-1">Email:</strong>${obj["email"]}</p>
@@ -55,6 +56,28 @@ let confirm = false;
                 }
             }
         }
+        
+        document.getElementById('buttonUpdate').addEventListener('click',  async() => {
+            
+            alert("Update your listing here.");
+            window.localStorage.setItem("update", true);
+            
+
+          /*  const listings = await fetch('/mylistings', {
+
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                        },
+                    body: JSON.stringify({username: username})
+                    });
+            
+            alert(listings);*/
+            window.location.href = '../donate';
+            //const listJSON = await listings.json();
+            //window.localStorage.setItem("myListing", listJSON);
+            
+        });
 
         document.getElementById('buttonDelete').addEventListener('click',  async() => {
             
@@ -79,16 +102,15 @@ let confirm = false;
                     },
                 body: JSON.stringify({username: username})
                 });
-        
+                window.location.href = '../'
             }
         });
 
         document.getElementById('buttonMyList').addEventListener('click',  async() => {
 
-            //API requests for the home screen are handled here
-
-            //Fetch listings from src index.js then create new div elements for each one 
+            if (listed === false) {
             //change to be curr user
+                listed = true;
                 let username = "Default";
 
                 const listings = await fetch('/mylistings', {
@@ -135,5 +157,6 @@ let confirm = false;
                             //document.getElementById("listings") = listingsDiv;
                             }
                         }
+                    }
                     });
                 })();
