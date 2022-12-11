@@ -8,7 +8,7 @@ let listed = false;
     const users = await fetch("/users") //get request to all users from backend -> []
     const userJSON = await users.json();
 
-    let currUserID = "0000";
+    let currUserID = "0000"; //change to currUserID
     userDiv = document.getElementById("user")
 
     if (currUserID === "") {
@@ -26,7 +26,6 @@ let listed = false;
         userDiv.innerHTML += loginUser;
     }
 
-    //${i["title"]}
     //For each listing in listings, create HTML template string for a listing
     for (let i in userJSON) {
         for (let j in userJSON[i]) {
@@ -61,10 +60,7 @@ let listed = false;
             
             alert("Update your listing here.");
             window.sessionStorage.setItem("update", true);
-            
-
-            window.location.href = '../donate';
-            
+            window.location.href = '../donate';         
         });
 
         document.getElementById('buttonDelete').addEventListener('click',  async() => {
@@ -97,9 +93,9 @@ let listed = false;
         document.getElementById('buttonMyList').addEventListener('click',  async() => {
 
             if (listed === false) {
-            //change to be curr user
+            
                 listed = true;
-                let username = "Default";
+                let username = "Default"; //change to be curr user
 
                 const listings = await fetch('/mylistings', {
 
@@ -113,11 +109,9 @@ let listed = false;
                 const listJSON = await listings.json();
                 const listingsDiv = document.getElementById("listings")
 
-                //${i["title"]}
                 //For each listing in listings, create HTML template string for a listing
                 for (let i in listJSON) {
                     for (let j in listJSON[i]) {
-                        //j["username"]
                         let obj = listJSON[i][j];
                         console.log(listJSON[i][j]);
                         const getListing = `
@@ -139,10 +133,7 @@ let listed = false;
                                 </span>
                             </span>
                             `;
-                            //console.log(getListing);
                             listingsDiv.innerHTML += getListing;
-                            //listingsDiv.appendChild(getListing);
-                            //document.getElementById("listings") = listingsDiv;
                             }
                         }
                     }

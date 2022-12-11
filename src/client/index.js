@@ -1,19 +1,15 @@
 //API requests for the home screen are handled here
 
 //Fetch listings from src index.js then create new div elements for each one 
-//console.log("test")
 
 (async () => {
     const listings = await fetch("/listings") //get request to all listings from backend -> []
     const listJSON = await listings.json();
-    //console.log(listJSON);
     const listingsDiv = document.getElementById("listings")
 
-    //${i["title"]}
     //For each listing in listings, create HTML template string for a listing
     for (let i in listJSON) {
         for (let j in listJSON[i]) {
-            //j["username"]
             let obj = listJSON[i][j];
             console.log(listJSON[i][j]);
             const getListing = `
@@ -35,10 +31,7 @@
                     </span>
                 </span>
                 `;
-                //console.log(getListing);
                 listingsDiv.innerHTML += getListing;
-                //listingsDiv.appendChild(getListing);
-                //document.getElementById("listings") = listingsDiv;
             }
         }
     })();

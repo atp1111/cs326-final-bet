@@ -40,10 +40,6 @@ client.connect((err) => {
 app.use("/", express.static("./src/client/")); 
 app.use("/profile", express.static("./src/client/profile"));
 
-export async function getUserByEmail(email) {
-  return await user.findOne({ email: email });
-}
-
 //Get listings stored in database and serve to client
 app.get('/listings', async (req, res) => {
   try {
@@ -56,6 +52,7 @@ app.get('/listings', async (req, res) => {
   }
 });
 
+//Get posts from database that match passed in username
 app.post('/mylistings', async (req, res) => {
   try {
     const username = req.body.username;
@@ -133,8 +130,6 @@ app.delete('/users', async (req, res) => {
     console.log(text); 
     const result = await client.query(text); 
     res.redirect( '/' );
-
-    
   } catch (err) {
     console.error(err);
     res.send("Error " + err);

@@ -3,8 +3,8 @@ let preview = document.getElementById("preview").src;
 let currPostId = "";
 
 async function updateFill() {
-    //change to curr user
-    let username = "Default";
+    
+    let username = "Default"; //change to curr user
 
     const listings = await fetch('/mylistings', {
 
@@ -16,7 +16,6 @@ async function updateFill() {
         });
     
     const listJSON = await listings.json();
-    //console.log(listJSON)
 
     for (let i in listJSON) {
         for (let j in listJSON[i]) { 
@@ -62,7 +61,6 @@ document.getElementById('addimage').addEventListener('click',  async() => {
     });
 
 //Send created listings from this page to the database.
-
 document.getElementById('buttonDonate').addEventListener('click',  async() => {
 
     let title = document.getElementById("title").value;
