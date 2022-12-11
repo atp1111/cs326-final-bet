@@ -1,6 +1,11 @@
 //Backend Server which retrieves info
 import express from "express"
 import pg from "pg"
+import expressSession from "express-session" //manage session state
+import passport from "passport"              //handles authentication
+import LocalStrategy from "passport-local"   //username/password strategy
+import minicrypt from "./miniCrypt"
+
 const {Client} = pg
 import dotenv from "dotenv"
 dotenv.config()
@@ -8,6 +13,7 @@ dotenv.config()
 //Start server and access secrets from .env
 const app = express();
 app.use(express.json())
+
 const port = process.env.PORT || 8000;
 const dbPort = process.env.DBPORT
 const host = process.env.HOST;
@@ -15,6 +21,7 @@ const database = process.env.DATABASE;
 const user = process.env.USER;
 const password = process.env.PASSWORD;
 const uri = process.env.DATABASE_URL;
+const mc = new minicrypt();
 
 const client = new Client({
   host: host,
@@ -37,8 +44,39 @@ client.connect((err) => {
   }
 })
 
+const session = {
+  secret : process.env.SECRET || 'SECRET', // set this encryption key in Heroku config (never in GitHub)!
+  resave : false,
+  saveUninitialized: false
+};
+
+// Passport configuration
+
+const strategy = new LocalStrategy(
+  async (username, password, done) => {
+if (!findUser(username)) {
+    // no such user
+    await new Promise((r) => setTimeout(r, 2000)); // two second delay
+    return done(null, false, { 'message' : 'Wrong username' });
+}
+if (!validatePassword(username, password)) {
+    // invalid password
+    // should disable logins after N messages
+    // delay return to rate-limit brute-force attacks
+    await new Promise((r) => setTimeout(r, 2000)); // two second delay
+    return done(null, false, { 'message' : 'Wrong password' });
+}
+// success!
+// should create a user object here, associated with a unique identifier
+return done(null, username);
+  });
+
 app.use("/", express.static("./src/client/")); 
 app.use("/profile", express.static("./src/client/profile"));
+app.use(expressSession(session));
+passport.use(strategy);
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Get listings stored in database and serve to client
 app.get('/listings', async (req, res) => {
