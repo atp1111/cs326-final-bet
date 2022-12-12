@@ -96,9 +96,7 @@ Profile Screen: Renuka
 
 # Milestone 2:
 
-Backend Server API/ Read Calls: Chuchu
-
-Create Calls: Aayush
+Backend Server API/ Read/Create Calls: Chuchu
 
 Update/Delete Calls/Server Hosting: Renuka/Chuchu
 
