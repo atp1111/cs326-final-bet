@@ -1,4 +1,4 @@
-Title: Team Bet
+**Title:** Team Bet
 Subtitle: Five College Closet Swap
 Semester: Fall 2022
 Overview: Looking to get rid of some old clothes, or change up your wardrobe on campus? With ClosetSwap, you can donate your clothes to other Five College students in the area! Using a custom made back-end for storing data, students can upload listings of clothes they want to get rid of, including parameters such as description, clothing type, size, age, condition, etc, as well as an image of the clothes, and using the home feed or search bar, other students can look for clothes that match what they’re looking for and contact them via their email.
