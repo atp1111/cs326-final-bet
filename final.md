@@ -14,7 +14,9 @@
 
 # Team Members 
 **Chukwudimma Ikoro (Github: ChukwudimmaIkoro)**
+
 **Renuka Abbidi (Github: RenukaAbbidi)**
+
 **Aayush Panchal (Github: atp1111)**
 	
 # User Interface 
@@ -28,7 +30,7 @@
 ![image](https://user-images.githubusercontent.com/69084967/206942750-81401bbf-a867-44cc-ba5a-4eeecef7ef8b.png)
 
 
-APIs: Heroku
+**APIs: Heroku
 Database:
 Listing Table 
 
