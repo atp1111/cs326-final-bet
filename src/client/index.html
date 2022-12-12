@@ -36,12 +36,15 @@
             <div class="container">
                 <div class="d-md-flex justify-content-between-align-item-center">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="what are you looking for?" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input type="text" id="myInput" onkeyup="searchChange()" class="form-control" placeholder="what are you looking for?" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <button class="btn btn-dark" type="button" id="button-addon2">Search</button>
-                        
+                        <div id="loading" class="lds-ellipsis" style="display: none;" ><div></div><div></div><div></div><div></div></div>                        
                       </div>
                       
                 </div>
+                <!-- <ul id="myUL" class="searchlist ">
+                  
+                  </ul> -->
             </div>
         </section>
         <div class="container">
