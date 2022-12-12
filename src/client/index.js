@@ -1,7 +1,6 @@
 //API requests for the home screen are handled here
 
 //Fetch listings from src index.js then create new div elements for each one 
-//console.log("test")
 
 let allProducts=[];
 (async ()=>{
@@ -22,16 +21,9 @@ let allProducts=[];
   
       cb(...args);
       wait = true;
-    //   const spinner=document.getElementById("loading")
-    //   const button=document.getElementById("button-addon2")
-      
-    //   spinner.style.display="block"
-    //   button.style.display="none"
 
       setTimeout(() => {
         wait = false;
-        // spinner.style.display="none"
-        // button.style.display="block"
       }, delay);
     }
   }
@@ -41,8 +33,6 @@ let allProducts=[];
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
-    // ul = document.getElementById("myUL");
-    // li = ul.getElementsByTagName("li");
     const listings = await fetch('/search', {
 
         method: 'POST',
@@ -56,37 +46,14 @@ let allProducts=[];
         allProducts=listJSON
         renderResults();
         console.log(listJSON,"inclient")
-        // listJSON.results.length>0? ul.style.display="block" : ul.style.display="none"
-        // ul.innerHTML=""
-        // listJSON.results.forEach(element => {
-        // const list = document.createElement("li");
-        // const link= document.createElement("a");
-        // link.setAttribute("href", "#");
-        // link.innerHTML=element.title
-        // list.appendChild(link)
-        // ul.appendChild(list)
-        // });
-        
-
-
-    // for (i = 0; i < li.length; i++) {
-    //     a = li[i].getElementsByTagName("a")[0];
-    //     txtValue = a.textContent || a.innerText;
-    //     if (txtValue.toUpperCase().indexOf(filter) > -1) {
-    //         li[i].style.display = "";
-    //     } else {
-    //         li[i].style.display = "none";
-    //     }
-    // }
+     
 }
  renderResults=() => {
    
-    // const listings = await fetch("/listings") //get request to all listings from backend -> []
-    // const listJSON = await listings.json();
-    //console.log(listJSON);
+
     const listingsDiv = document.getElementById("listings")
     listingsDiv.innerHTML=''
-    //${i["title"]}
+  
     //For each listing in listings, create HTML template string for a listing
     for (let i in allProducts) {
         for (let j in allProducts[i]) {
@@ -111,11 +78,9 @@ let allProducts=[];
                         </span>
                     </span>
                 </span>
-                `;
-                //console.log(getListing);
+                `;             
                 listingsDiv.innerHTML += getListing;
-                //listingsDiv.appendChild(getListing);
-                //document.getElementById("listings") = listingsDiv;
+
             }
         }
     }
