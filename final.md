@@ -85,7 +85,7 @@ A “default” user is accessed if there is no currently logged in user.
 
 # Division of Labor
 
-Milestone 1:
+# Milestone 1:
 
 Home Screen: Aayush 
 
@@ -94,7 +94,7 @@ Donate Screen: Chuchu
 Profile Screen: Renuka
 
 
-Milestone 2:
+# Milestone 2:
 
 Backend Server API/ Read Calls: Chuchu
 
@@ -103,7 +103,7 @@ Create Calls: Aayush
 Update/Delete Calls/Server Hosting: Renuka/Chuchu
 
 
-Milestone 3:
+# Milestone 3:
 
 Database/Secrets File Setup: Chuchu
 
@@ -111,7 +111,7 @@ Create, Read, Delete Completed Functions: Chuchu
 
 Update Completed Function: Chuchu
 
-Final Project:
+# Final Project:
 
 Search Bar: Renuka
 
