@@ -1,21 +1,30 @@
 # Title
 **Team Bet**
 
-Subtitle: Five College Closet Swap
-Semester: Fall 2022
-Overview: Looking to get rid of some old clothes, or change up your wardrobe on campus? With ClosetSwap, you can donate your clothes to other Five College students in the area! Using a custom made back-end for storing data, students can upload listings of clothes they want to get rid of, including parameters such as description, clothing type, size, age, condition, etc, as well as an image of the clothes, and using the home feed or search bar, other students can look for clothes that match what they’re looking for and contact them via their email.
+# Subtitle
+**Five College Closet Swap**
 
-In this day and age, it’s more important than ever to recycle, and with this app, it’s easier than ever to clear out your old wardrobe, or even find some new clothing to try!
-Team Members: 
-	Chukwudimma Ikoro (Github: ChukwudimmaIkoro)
-	Renuka Abbidi (Github: )
-	Aayush Panchal (Github: atp1111 )
-User Interface: 
-	Home View: The main view where you can see all of the current donation listings, or search via title with the search bar.
+# Semester 
+**Fall 2022**
+
+# Overview
+**Looking to get rid of some old clothes, or change up your wardrobe on campus? With ClosetSwap, you can donate your clothes to other Five College students in the area! Using a custom made back-end for storing data, students can upload listings of clothes they want to get rid of, including parameters such as description, clothing type, size, age, condition, etc, as well as an image of the clothes, and using the home feed or search bar, other students can look for clothes that match what they’re looking for and contact them via their email.
+
+In this day and age, it’s more important than ever to recycle, and with this app, it’s easier than ever to clear out your old wardrobe, or even find some new clothing to try! **
+
+# Team Members 
+	**Chukwudimma Ikoro (Github: ChukwudimmaIkoro)
+	Renuka Abbidi (Github: RenukaAbbidi)
+	Aayush Panchal (Github: atp1111)**
+	
+# User Interface 
+	**Home View: The main view where you can see all of the current donation listings, or search via title with the search bar.
+	![image](https://user-images.githubusercontent.com/69084967/206942645-1d4b6551-3d53-4f66-9eea-a610a3128b7d.png)
+
 	
 	Donate View: The view where you can create and upload listings to the database.
 	
-	Profile View: The view where you can see the current user and manage listings.
+	Profile View: The view where you can see the current user and manage listings.**
 
 APIs: Heroku
 Database:
