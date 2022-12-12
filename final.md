@@ -80,19 +80,31 @@ app.delete('/users'): Delete listings stored in database under current user’s 
 app.post('/search'): Get posts from database that closely match sear bar data
 
 
-Authentication/Authorization: A “default” user is accessed if there is no currently logged in user.
-Division of Labor: 
+# Authentication/Authorization
+A “default” user is accessed if there is no currently logged in user.
+
+# Division of Labor
+
 Milestone 1:
+
 Home Screen: Aayush 
+
 Donate Screen: Chuchu
+
 Profile Screen: Renuka
 
+
 Milestone 2:
+
 Backend Server API/ Read Calls: Chuchu
+
 Create Calls: Aayush
+
 Update/Delete Calls/Server Hosting: Renuka/Chuchu
 
+
 Milestone 3:
+
 Database/Secrets File Setup: Chuchu
 
 Create, Read, Delete Completed Functions: Chuchu
@@ -100,8 +112,11 @@ Create, Read, Delete Completed Functions: Chuchu
 Update Completed Function: Chuchu
 
 Final Project:
+
 Search Bar: Renuka
+
 Code Cleanup/ CRUD Fixes/My Listings: Chuchu
 
 
-Conclusion: Through this project, we learned that sometimes having plans that are too big or complex near the start of the project can make it harder to work on things in the long run if you decide to pare it back a bit. Features we thought would be somewhat easy to implement such as a comments/message system turned out to be much harder than we ever expected, which affected how we worked on the app. There were also issues in terms of database management, as it was particularly difficult to properly interact with our database, often needing to use trial and error to figure out some issues. If I worked on the project now, I would tell myself to make a list of features that are required and a list of features that are nice to have, so I could focus on those later.
+# Conclusion
+Through this project, we learned that sometimes having plans that are too big or complex near the start of the project can make it harder to work on things in the long run if you decide to pare it back a bit. Features we thought would be somewhat easy to implement such as a comments/message system turned out to be much harder than we ever expected, which affected how we worked on the app. There were also issues in terms of database management, as it was particularly difficult to properly interact with our database, often needing to use trial and error to figure out some issues. If I worked on the project now, I would tell myself to make a list of features that are required and a list of features that are nice to have, so I could focus on those later.
