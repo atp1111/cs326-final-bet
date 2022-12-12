@@ -30,9 +30,11 @@
 ![image](https://user-images.githubusercontent.com/69084967/206942750-81401bbf-a867-44cc-ba5a-4eeecef7ef8b.png)
 
 
-**APIs: Heroku
-Database:
-Listing Table 
+# APIs
+**Heroku**
+
+# Database
+**Listing Table**
 
 | Column       | Data Type | Description                 |
 |--------------|-----------|-----------------------------|
@@ -51,7 +53,7 @@ Listing Table
 | donateby | DateTime  | When you want to donate the listing by |
 
 
-User Table 
+**User Table** 
 
 | Column       | Data Type | Description                 |
 |--------------|-----------|-----------------------------|
@@ -61,7 +63,8 @@ User Table
 | location     | String    | The location of the user    |
 | myListing    | Object    | The user's current listings  |
 
-URL Routes/Mappings: 
+# URL Routes/Mappings
+
 app.get('/listings'): Gets all listings stored in database and serves to client
 
 app.post('/mylistings’): Get posts from database that match passed in username
