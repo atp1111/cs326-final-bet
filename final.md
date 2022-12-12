@@ -18,12 +18,15 @@ Renuka Abbidi (Github: RenukaAbbidi)
 Aayush Panchal (Github: atp1111)**
 	
 # User Interface 
-**Home View: The main view where you can see all of the current donation listings, or search via title with the search bar.
+**Home View: The main view where you can see all of the current donation listings, or search via title with the search bar.**
 ![image](https://user-images.githubusercontent.com/69084967/206942645-1d4b6551-3d53-4f66-9eea-a610a3128b7d.png)
 	
-Donate View: The view where you can create and upload listings to the database.
+**Donate View: The view where you can create and upload listings to the database.**
+![image](https://user-images.githubusercontent.com/69084967/206942716-18431fe2-3128-407d-b498-675c47c1d427.png)
 
-Profile View: The view where you can see the current user and manage listings.**
+**Profile View: The view where you can see the current user and manage listings.**
+![image](https://user-images.githubusercontent.com/69084967/206942750-81401bbf-a867-44cc-ba5a-4eeecef7ef8b.png)
+
 
 APIs: Heroku
 Database:
